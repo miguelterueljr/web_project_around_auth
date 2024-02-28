@@ -26,6 +26,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   const history = useHistory();
+
   //faço a chamada a minha classe api e atribuo seu valor a variavel currentUser
   useEffect(() => {
     apiInstance.getProfile()
@@ -144,29 +145,19 @@ function App() {
     setCards([newCard, ...cards])
   }
 
-  const handleTestLogin = () => {
+  const handleLogin = (evt) => {
+    evt.preventDefault();
     setLoggedIn(true);
-    history.push('/protected');
+    //history.push('/');
   };
   
   
   return (
     <>
-      <button onClick={handleTestLogin}>Testador de Login</button>
+      
       <Switch>
-        <Route exact path='/'>
-          {loggedIn ? <Redirect to='/protected' /> : <Redirect to='/Login' />}
-        </Route>
-
-        <Route path='/login'>
-          <Login />
-        </Route>
-
-        <Route path='/register'>
-          <Register />
-        </Route>
-
-        <Route path='/protected'>
+        
+        <ProtectedRoute path='/protected' loggedIn={loggedIn}>
           <CurrentUSerContext.Provider value={{currentUser, initialCards}}>
             <div className='root'>
               {/*modal do edit-profile-->*/}
@@ -211,6 +202,18 @@ function App() {
 
             </div>
           </CurrentUSerContext.Provider>
+        </ProtectedRoute>
+        
+        <Route path='/login'>
+          <Login handleLogin={handleLogin}/>
+        </Route>
+
+        <Route path='/register'>
+          <Register />
+        </Route>
+        
+        <Route>
+          {loggedIn ? <Redirect to='/protected' /> : <Redirect to='/Login' />}
         </Route>
 
       </Switch>

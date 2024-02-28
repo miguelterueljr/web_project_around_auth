@@ -46,7 +46,7 @@ class Login extends Component {
             },
           }, () => {
             this.props.handleLogin(evt);
-            this.props.history.push('/homepage')
+            this.props.history.push('/protected')
           });
         }
       })
