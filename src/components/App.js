@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { Link, Route, Switch, Redirect } from 'react-router-dom';
+
 /*Importação dos componentes*/
 import Main from './Main';
 import PopupWithForm from './PopupWithForm';
@@ -8,7 +10,10 @@ import CurrentUSerContext from '../contexts/CurrentUserContext';
 import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
-
+import ProtectedRoute from './ProtectedRoute';
+import Login from './Login';
+import Register from './Register';
+import { useHistory } from 'react-router-dom';
 
 function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
@@ -18,7 +23,9 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [initialCards, setInitialCards] = useState([]);
   const [cards, setCards] = useState([])
+  const [loggedIn, setLoggedIn] = useState(false);
 
+  const history = useHistory();
   //faço a chamada a minha classe api e atribuo seu valor a variavel currentUser
   useEffect(() => {
     apiInstance.getProfile()
@@ -137,52 +144,79 @@ function App() {
   function onAddPlaceSubmit(newCard) {
     setCards([newCard, ...cards])
   }
+
+  const handleTestLogin = () => {
+    
+    setLoggedIn(true);
+    history.push('/protected');
+  };
+  
   
   return (
-    <CurrentUSerContext.Provider value={{currentUser, initialCards}}>
-      <div className='root'>
-        {/*modal do edit-profile-->*/}
-        <EditProfilePopup 
-          isOpen={isEditProfilePopupOpen} 
-          onClose = {closeAllPopups} 
-          onUpdateUser={handleUpdateUser}
-        />
+    <>
+      <button onClick={handleTestLogin}>Testador de Login</button>
+      <Switch>
+        <Route exact path='/'>
+          {loggedIn ? <Redirect to='/protected' /> : <Redirect to='/Login' />}
+        </Route>
 
-        {/*<!--modal do adicionar card-->*/}
-        <AddPlacePopup
-          isOpen={isAddPlacePopupOpen}
-          onClose={closeAllPopups}
-          setCards={setCards}
-          onAddPlaceSubmit = {onAddPlaceSubmit}
-        />
-        
+        <Route path='/login'>
+          <Login />
+        </Route>
 
-        {/*<!--modal de confirmação de delete card-->*/}
-        <PopupWithForm name='modal-delete' buttonclose='button-close' buttonclassetwo='modal__button-close_close' title='Tem certeza ?'>
-          <button className="modal__button modal__button-create modal__button_confirm" type="submit">Sim</button> 
-        </PopupWithForm>
+        <Route path='/register'>
+          <Register />
+        </Route>
 
-        {/*<!--modal de alterar foto do perfil-->*/}
-        <EditAvatarPopup 
-          isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-          onUpdateAvatar={handleUpdateAvatar}
-        />
+        <Route path='/protected'>
+          <CurrentUSerContext.Provider value={{currentUser, initialCards}}>
+            <div className='root'>
+              {/*modal do edit-profile-->*/}
+              <EditProfilePopup 
+                isOpen={isEditProfilePopupOpen} 
+                onClose = {closeAllPopups} 
+                onUpdateUser={handleUpdateUser}
+              />
 
-        <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+              {/*<!--modal do adicionar card-->*/}
+              <AddPlacePopup
+                isOpen={isAddPlacePopupOpen}
+                onClose={closeAllPopups}
+                setCards={setCards}
+                onAddPlaceSubmit = {onAddPlaceSubmit}
+              />
+              
 
-        <Main 
-          onEditProfileClick = {handleEditProfileClick}
-          onAddPlaceClick={handleAddPlaceClick}
-          onEditAvatarClick= {handleEditAvatarClick}
-          onCardClick={handleCardClick}
-          cards={cards}  // Pass cards as a prop
-          onCardLike={handleCardLike}  // Pass like handler as a prop
-          onCardDelete={handleCardDelete}  // Pass delete handler as a prop
-        />
+              {/*<!--modal de confirmação de delete card-->*/}
+              <PopupWithForm name='modal-delete' buttonclose='button-close' buttonclassetwo='modal__button-close_close' title='Tem certeza ?'>
+                <button className="modal__button modal__button-create modal__button_confirm" type="submit">Sim</button> 
+              </PopupWithForm>
 
-      </div>
-    </CurrentUSerContext.Provider>
+              {/*<!--modal de alterar foto do perfil-->*/}
+              <EditAvatarPopup 
+                isOpen={isEditAvatarPopupOpen}
+                onClose={closeAllPopups}
+                onUpdateAvatar={handleUpdateAvatar}
+              />
+
+              <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+
+              <Main 
+                onEditProfileClick = {handleEditProfileClick}
+                onAddPlaceClick={handleAddPlaceClick}
+                onEditAvatarClick= {handleEditAvatarClick}
+                onCardClick={handleCardClick}
+                cards={cards}  // Pass cards as a prop
+                onCardLike={handleCardLike}  // Pass like handler as a prop
+                onCardDelete={handleCardDelete}  // Pass delete handler as a prop
+              />
+
+            </div>
+          </CurrentUSerContext.Provider>
+        </Route>
+
+      </Switch>
+    </>
   );
 }
 
