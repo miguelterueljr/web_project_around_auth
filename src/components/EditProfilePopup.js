@@ -9,16 +9,6 @@ function EditProfilePopup(props) {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
 
-  /*
-    useEffect(() => {
-      // Verifique se currentUser está definido antes de acessar os dados, senao pode retornar null
-      if (currentUser && currentUser.currentUser) {
-        setName(currentUser.currentUser.name);
-        setDescription(currentUser.currentUser.about);
-    }
-    }, [currentUser]);
-  */
-  
   function handleChangeName(evt) {
     setName(evt.target.value)
   }

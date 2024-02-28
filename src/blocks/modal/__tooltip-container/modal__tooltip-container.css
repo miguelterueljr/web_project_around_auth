@@ -1,0 +1,6 @@
+.modal__tooltip-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+}

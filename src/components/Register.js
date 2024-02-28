@@ -3,6 +3,9 @@ import { Link, withRouter, useHistory } from 'react-router-dom';
 
 import usLogo from "../images/around-the-us-logo.png";
 import * as auth from '../utils/auth';
+import InfoToolTip from "./InfoToolTip";
+import successImage from '../images/success_image.png';
+import failureImage from '../images/failure_image.png';
 
 function Register() {
   const history = useHistory();
@@ -11,12 +14,29 @@ function Register() {
     password: '',
   });
 
+  const [showSuccessToolTip, setShowSuccessToolTip] = useState(false);
+  const [showFailureToolTip, setShowFailureToolTip] = useState(false);
+
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData((prevFormData) => ({
       ...prevFormData, //copia todas as prorpeidades do estando anterior do formulario, e adiciona um novo objeto que representa o novo estado do formulário mantendo a imutabildiades
       [name]: value,
     }));
+  }
+
+  function handleToolTipClose() {
+    setShowSuccessToolTip(false);
+    setShowFailureToolTip(false);
+  }
+
+  function handleRegistrationSuccess() {
+    setShowSuccessToolTip(true)
+    //history.push('/login')
+  }
+
+  function handleRegistrationFailure() {
+    setShowFailureToolTip(true)
   }
 
   function handleSubmit(evt) {
@@ -29,14 +49,17 @@ function Register() {
           // Registro bem-sucedido
           console.log('Registro bem-sucedido:', res);
           // Redireciona o usuário para a página de login
-          history.push("/login");
+          handleRegistrationSuccess();
+          //history.push("/login");
         } else {
           // Algo deu errado no registro
           console.error('Algo deu errado no registro');
+          handleRegistrationFailure();
         }
       })
       .catch((error) => {
         console.error('Erro durante o registro:', error);
+        handleRegistrationFailure();
       });
   }
 
@@ -81,6 +104,27 @@ function Register() {
           </section>
         </form>
       </section>
+
+      {showSuccessToolTip && (
+        <InfoToolTip
+          container = 'modal__tooltip-container'
+          isOpen={true}
+          text="Vitória! Você se registrou."
+          image={successImage}
+          onClose={handleToolTipClose}
+          
+        />
+      )}
+
+      {showFailureToolTip && (
+        <InfoToolTip
+          container = 'modal__tooltip-container'
+          isOpen={true}
+          text="Ops, algo deu errado! Por favor, tente novamente."
+          image={failureImage}
+          onClose={handleToolTipClose}
+        />
+      )}
     </div>
   )
 }

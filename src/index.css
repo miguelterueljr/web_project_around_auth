@@ -96,3 +96,7 @@
 @import url(./blocks/register-info/__input/register-info__input.css);
 @import url(./blocks/register-action/register-action.css);@import url(./blocks/register-action/__button/register-action__button.css);
 @import url(./blocks/register-action/__link/register-action__link.css);
+
+/*Modais do Succes e failure on Register*/
+@import url(./blocks/modal/__tooltip-container/modal__tooltip-container.css);
+@import url(./blocks/modal/__tooltip-text/modal__tooltip-text.css)
