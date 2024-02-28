@@ -14,6 +14,7 @@ import ProtectedRoute from './ProtectedRoute';
 import Login from './Login';
 import Register from './Register';
 import { useHistory } from 'react-router-dom';
+import * as auth from '../utils/auth';
 
 function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
@@ -143,6 +144,25 @@ function App() {
   //entender isso aqui melhor
   function onAddPlaceSubmit(newCard) {
     setCards([newCard, ...cards])
+  }
+
+  useEffect(() => {
+    tokenCheck()
+  }, [])
+
+
+  const tokenCheck = () => {
+    const jwt = localStorage.getItem('jwt');
+
+    if (jwt) {
+      auth.getContent(jwt).then((res) => {
+        if (res) {
+          setLoggedIn(true)
+          history.push('/protected')
+        }
+
+      })
+    }
   }
 
   const handleLogin = (evt) => {
