@@ -1,0 +1,5 @@
+.modal__input-separation {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

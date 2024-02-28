@@ -1,0 +1,14 @@
+.register-action {
+  display: flex;
+  flex-direction: column;
+  width: 40.68%;
+  align-self: center;
+  margin-top: 136px;
+  gap: 15px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .register-action {
+    width: 260px;
+  }
+}

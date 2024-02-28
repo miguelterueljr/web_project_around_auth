@@ -1,0 +1,15 @@
+
+.modal-image__image {
+    width: 443px;
+    height: 500px;
+    object-fit: cover;
+    transform: scale(0); /*efeito sobre a escala*/
+    transition: all linear .3s;
+  }
+  
+  @media screen and (min-width: 320px) and (max-width: 600px) {
+    .modal-image__image {
+      width: 240px;
+      height: 500px;
+    }
+  }

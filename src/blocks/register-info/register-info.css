@@ -1,0 +1,16 @@
+.register-info {
+  margin-top: 60px;
+  width: 40.68%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 50px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .register-info {
+    gap: 40px;
+    width: 260px;
+    margin-top: 40px;
+  }
+}

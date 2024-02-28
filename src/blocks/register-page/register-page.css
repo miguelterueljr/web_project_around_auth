@@ -1,0 +1,8 @@
+.register-page {
+  height: 93vh;
+  min-width: 68.75%;
+  padding-top: 45px;
+  display: flex;
+  flex-direction: column;
+  background-color: #000000;
+}

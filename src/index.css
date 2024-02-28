@@ -1,13 +1,98 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/*importação normalize*/
+@import url(./vendor/normalize.css);
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+/*importação normalize*/
+@import url(./fonts/Inter-Web/inter.css);
+
+/*importação root e page - blocos baiscos do meu html*/
+@import url(./blocks/root/root.css);
+@import url(./blocks/page/page.css);
+/*faz a pagina ficar mais opaca para aparição do modal*/
+@import url(./blocks/page/_opacity/page_opacity.css);
+
+/*blocos modais - quero que carregue antes para nao ter risco de exibir algum modal sem o usuario pedir*/
+@import url(./blocks/modal/modal.css);
+@import url(./blocks/modal/__button/modal__button-close.css);
+@import url(./blocks/modal/__container/modal__container.css);
+@import url(./blocks/modal/__title/modal__title.css);
+@import url(./blocks/modal/__form/modal__form.css);
+@import url(./blocks/modal/__input/modal__input.css);
+@import url(./blocks/modal/__input-error/modal__input-error.css);
+@import url(./blocks/modal/__button/modal__button-save.css);
+@import url(./blocks/button/__inactive/button__inactive.css);
+@import url(./blocks/modal/__text-register/modal__text-register.css);
+
+/*Classe que sera inserida via JS para que o modal apareça*/
+@import url(./blocks/modal/modal-opened/modal-opened.css);
+
+/*bloco modal de adicionar card*/
+@import url(./blocks/modal/__button/modal__button-create.css);
+
+/*bloco do modal de imagens quando clicada*/
+@import url(./blocks/modal-image/modal-image.css);
+@import url(./blocks/modal-image/__button/modal-image__button.css);
+@import url(./blocks/modal-image/__image/modal-image__image.css);
+@import url(./blocks/modal-image/__title/modal-image__title.css);
+@import url(./blocks/modal-image/__active/modal-image__active.css);
+
+/*bloco header*/
+@import url(./blocks/header/header.css);
+@import url(./blocks/header/__image/header__image.css);
+@import url(./blocks/header/__line/header__line.css);
+
+/*Profile block*/
+@import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__container/profile__container.css);
+@import url(./blocks/profile/__image/profile__image.css);
+@import url(./blocks/profile/__name/profile__name.css);
+@import url(./blocks/profile/__about/profile__about.css);
+@import url(./blocks/profile/__title/profile__title.css);
+@import url(./blocks/profile/__info/profile__info.css);
+
+/*estilizacao botoes*/
+@import url(./blocks/button/button.css);
+@import url(./blocks/button/__edit/button__edit.css);
+@import url(./blocks/button/__add/button__add.css);
+
+/*bloco elements e element*/
+@import url(./blocks/elements/elements.css);
+@import url(./blocks/element/element.css);
+@import url(./blocks/element/__image/element__image.css);
+@import url(./blocks/element/__delete/element__delete.css);
+@import url(./blocks/element/__text/element__text.css);
+@import url(./blocks/element/__title/element__title.css);
+@import url(./blocks/element/__button/element__button.css);
+@import url(./blocks/element/__button/_active/element__button_active.css);
+
+/*bloco footer*/
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__title/footer__title.css);
+
+/*Componente Login*/
+@import url(./blocks/login/login.css);
+@import url(./blocks/login/__image/login__image.css);
+@import url(./blocks/login/__container/login__container.css);
+@import url(./blocks/login/__line/login__line.css);
+@import url(./blocks/login/__textEnter/login__textEnter.css);
+@import url(./blocks/login-info/login-info.css);
+@import url(./blocks/login-page/login-page.css);
+@import url(./blocks/login-info/__title/login-info__title.css);
+@import url(./blocks/login-info/__container/login-info__container.css);
+@import url(./blocks/login-info/__input/login-info__input.css);
+@import url(./blocks/login-action/login-action.css);
+@import url(./blocks/login-action/__button/login-action__button.css);
+@import url(./blocks/login-action/__link/login-action__link.css);
+
+/*Componente Register */
+@import url(./blocks/register-page/register-page.css);
+@import url(./blocks/register/register.css);
+@import url(./blocks/register/__container/register__container.css);
+@import url(./blocks/register/__image/register__image.css);
+@import url(./blocks/register/__textEnter/register__textEnter.css);
+@import url(./blocks/register/__line/register__line.css);
+@import url(./blocks/register-info/register-info.css);
+@import url(./blocks/register-info/__title/register-info__title.css);
+@import url(./blocks/register-info/__container/register-info__container.css);
+@import url(./blocks/register-info/__input/register-info__input.css);
+@import url(./blocks/register-action/register-action.css);@import url(./blocks/register-action/__button/register-action__button.css);
+@import url(./blocks/register-action/__link/register-action__link.css);

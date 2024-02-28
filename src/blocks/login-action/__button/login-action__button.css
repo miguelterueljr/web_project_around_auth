@@ -1,0 +1,17 @@
+.login-action__button {
+  height: 50px;
+  border-radius: 2px;
+  border: none;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 21.78px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .login-action__button{
+    font-size: 1rem;
+    line-height: 19.36px;
+    
+  }
+}

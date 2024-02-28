@@ -1,0 +1,44 @@
+.modal {
+  width: 470px; /*Na verdade o bloco branco tem 430, porem mais 40 de cada lado para fazer o x ficar ao lado*/
+  height: 390px;
+  /*faz o modal se nao for chamado ficar escondido*/
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /*faz com que o conteudo fique centralizado*/
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  opacity: 0;
+  transition: visibility 0.8s linear, opacity 0.5s linear; /*animacao quando abrir e fechar o modal*/
+}
+
+.modal_delete {
+  display: flex;
+  visibility: visible;
+  width: 470px;
+  height: 228px;
+  opacity: 1;
+}
+
+/*modal do edit photo*/
+.modal-photo {
+  display: flex;
+  visibility: visible;
+  height: 282px;
+  width: 470px;
+  opacity: 1;
+}
+
+
+
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .modal {
+    width: 282px;
+    
+  }
+
+}

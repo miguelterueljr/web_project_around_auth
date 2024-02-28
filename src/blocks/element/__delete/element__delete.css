@@ -1,0 +1,18 @@
+.element__delete {
+    position: absolute;
+    z-index: 1;
+    top: 21px;
+    right: 16.28px;
+    background-color: transparent;
+    border: none;
+    visibility: hidden;
+  }
+
+  .element__delete_active {
+    visibility: visible;
+  }
+
+  .element__delete:hover {
+    cursor: pointer;
+    opacity: .8;
+  }

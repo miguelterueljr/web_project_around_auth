@@ -1,0 +1,12 @@
+.header__line {
+  opacity: .7;
+  color: #545454;
+  
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .header__line {
+    width: 100vw;
+  }
+
+}

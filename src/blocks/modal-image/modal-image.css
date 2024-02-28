@@ -1,0 +1,29 @@
+.modal-image {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 513px;
+  height: 620px;
+  position: fixed;
+  z-index: 2;
+  gap: 10px;
+  top: 50%;
+  left: 50%;
+  /*Margin-left negativo do resultado da metade de widht, para ficar centralizado*/
+  transform: translate(-50%, -50%);
+  
+  opacity: 0;
+
+  transition: visibility 0.8s linear, opacity 0.5s linear; /*animacao quando abrir e fechar o modal*/
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .modal-image {
+    width: 282px;
+    
+  }
+
+}
+

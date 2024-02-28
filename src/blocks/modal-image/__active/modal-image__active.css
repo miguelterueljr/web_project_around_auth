@@ -1,0 +1,8 @@
+.modal-image__active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-image__active .modal-image__image { /*animacao sobre a escala do modal*/
+    transform: scale(1);
+}

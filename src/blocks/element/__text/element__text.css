@@ -1,0 +1,8 @@
+.element__text {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 25px;
+  margin-left: 21px;
+  margin-right: 15px;
+  
+}

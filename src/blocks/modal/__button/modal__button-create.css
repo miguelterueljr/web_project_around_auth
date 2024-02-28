@@ -1,0 +1,27 @@
+.modal__button-create {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 1.125rem; /*18px*/
+    line-height: 1.361rem;
+    width: 358px;
+    height: 50.15px;
+    border-radius: 2px;
+  
+   }
+  
+   .modal__button-create:hover {
+    opacity: .8;
+    cursor: pointer;
+   }
+  
+   /*ao diminuir em 600px x ta ficando mto afastado*/
+  @media screen and (min-width: 320px) and (max-width: 600px) {
+    .modal__button-create {
+      max-width: 238px;
+      font-size: 0.875rem; /*14px*/
+      line-height: 1.05rem;
+  
+    }
+  }

@@ -1,0 +1,10 @@
+.login__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .login__container {
+    justify-content: space-around;
+  }
+}

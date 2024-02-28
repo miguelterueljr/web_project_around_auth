@@ -1,0 +1,13 @@
+.register__image {
+  width: 173px;
+  height: 33px;
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .register__image {
+    margin-left: 27px;
+    width: 126px;
+    height: 24px;
+  }
+}

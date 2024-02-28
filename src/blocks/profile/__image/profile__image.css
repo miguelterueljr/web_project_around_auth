@@ -1,0 +1,32 @@
+.profile__image-overlay {
+  position: relative;
+}
+
+.profile__image {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+.profile__edit-picture {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile__image-overlay:hover .profile__image {
+  opacity: 0.5;
+}
+
+.profile__image-overlay:hover .profile__edit-picture {
+  visibility: visible;
+  opacity: 1;
+}

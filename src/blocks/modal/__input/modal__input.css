@@ -1,0 +1,11 @@
+.modal__input {
+  border: none;
+  border-bottom: 1px solid gray;
+  padding-bottom: 11px;
+  color: #000000;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem; /*14px*/
+  line-height: 1.05rem;
+  width: 100%;
+}

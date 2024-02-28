@@ -1,0 +1,15 @@
+.register-info__title {
+  color: #fff;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  line-height: 29.05px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .register-info__title {
+    font-size: 1.25rem;
+    line-height: 24.2px;
+  }
+}

@@ -1,0 +1,11 @@
+.login__line {
+  opacity: .7;
+  color: #545454;
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .login__line {
+    width: 100vw;
+  }
+
+}

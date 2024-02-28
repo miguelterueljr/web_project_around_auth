@@ -1,0 +1,19 @@
+.button-edit {
+  width: 24px;
+  height: 24px;
+  align-self: center;
+  
+}
+
+.button-edit:hover {
+  opacity: .6;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .button-edit {
+    width: 18px;
+    height: 18px;
+    
+  }
+}

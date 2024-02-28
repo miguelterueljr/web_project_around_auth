@@ -1,0 +1,11 @@
+.element__title {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem; /*24px*/
+  line-height: 1.815rem;
+
+  /*Codigo abaixo para caso usuario escfeva um titulo mto ggtande ficar escondido e abreviar por reticencias*/
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
