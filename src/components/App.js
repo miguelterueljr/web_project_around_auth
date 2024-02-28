@@ -84,7 +84,6 @@ function App() {
     page.classList.toggle('page_opacity');
   }
   
-
   //abre o modal para editar a foto do avatar
   const handleEditAvatarClick = () => {
     setIsEditAvatarPopupOpen(true);
@@ -146,7 +145,6 @@ function App() {
   }
 
   const handleTestLogin = () => {
-    
     setLoggedIn(true);
     history.push('/protected');
   };
