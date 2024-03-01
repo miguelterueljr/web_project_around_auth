@@ -1,7 +1,7 @@
 .login-page {
-  height: 93vh;
+  height: 100vh;
   min-width: 68.75%;
-  margin-top: 45px;
+  padding-top: 45px;
   display: flex;
   flex-direction: column;
   background-color: #000000;

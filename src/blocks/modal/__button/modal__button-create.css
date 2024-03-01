@@ -8,9 +8,14 @@
     width: 358px;
     height: 50.15px;
     border-radius: 2px;
-  
    }
   
+   .modal__button-create[disabled] {
+    background-color: #ccc; 
+    color: #999;
+    cursor: not-allowed; 
+  }
+
    .modal__button-create:hover {
     opacity: .8;
     cursor: pointer;

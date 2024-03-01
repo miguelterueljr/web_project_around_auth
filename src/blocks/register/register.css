@@ -3,4 +3,6 @@
   flex-direction: column;
   gap: 41px;
   background-color: black;
+  width: 68.75%;
+  align-self: center;
 }

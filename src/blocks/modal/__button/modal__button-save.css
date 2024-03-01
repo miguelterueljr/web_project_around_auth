@@ -11,6 +11,12 @@
 
  }
 
+ .modal__button-save[disabled] {
+  background-color: #ccc; 
+  color: #999;
+  cursor: not-allowed; 
+}
+
  .modal__button-save:hover {
   opacity: .8;
   cursor: pointer;

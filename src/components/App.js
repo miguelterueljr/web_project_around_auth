@@ -25,29 +25,7 @@ function App() {
   const [initialCards, setInitialCards] = useState([]);
   const [cards, setCards] = useState([])
   const [loggedIn, setLoggedIn] = useState(false);
-
   const history = useHistory();
-
-  //faço a chamada a minha classe api e atribuo seu valor a variavel currentUser
-  useEffect(() => {
-    apiInstance.getProfile()
-      .then(userData => {
-        setCurrentUser(userData);
-      })
-      .catch(error => {
-        console.error("Erro ao buscar o perfil do usuário:", error);
-      });
-
-    //aqui to puxando do arquivo api o fetchInitialCards  
-    apiInstance.fetchInitialCards()
-      .then(cardData => {
-        setCards(cardData);
-      })
-      .catch(error => {
-        console.error("Erro ao buscar os cards iniciais:", error);
-      });  
-
-  }, []);
 
   const handleCardLike = (card) => {
     // Verifica se o card é undefined antes de acessar a propriedade likes
@@ -146,9 +124,7 @@ function App() {
     setCards([newCard, ...cards])
   }
 
-  useEffect(() => {
-    tokenCheck()
-  }, [])
+  
 
 
   const tokenCheck = () => {
@@ -168,9 +144,28 @@ function App() {
   const handleLogin = (evt) => {
     evt.preventDefault();
     setLoggedIn(true);
-    //history.push('/');
   };
-  
+
+  useEffect(() => {
+    apiInstance.getProfile()
+      .then(userData => {
+        setCurrentUser(userData);
+      })
+      .catch(error => {
+        console.error("Erro ao buscar o perfil do usuário:", error);
+      });
+
+    
+    apiInstance.fetchInitialCards()
+      .then(cardData => {
+        setCards(cardData);
+      })
+      .catch(error => {
+        console.error("Erro ao buscar os cards iniciais:", error);
+      });  
+      
+    tokenCheck();
+  }, []);
   
   return (
     <>
